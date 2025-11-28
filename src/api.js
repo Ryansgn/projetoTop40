@@ -1,22 +1,30 @@
-// src/api.js
-const API_BASE = ''; // Dev com proxy do Vite: ''. Produção: 'https://seu-dominio/backend/public'
+const DEV = import.meta.env && import.meta.env.DEV;
 
+const API_BASE = DEV
+  ? '' // Vite proxy
+  : 'https://projetotop40.free.nf/public';
+ 
 /* =======================
    HELPERS
    ======================= */
 function buildURL(path, params = {}) {
   // garante que sempre começamos com / e aplicamos API_BASE
-  const base = API_BASE || '';
   const p = path.startsWith('/') ? path : `/${path}`;
-  const url = new URL(`${base}${p}`, window.location.origin);
+  const base = API_BASE || '';
   const sp = new URLSearchParams(params);
 
   // anti-cache para dev/PWA
   if (!sp.has('t')) sp.set('t', Date.now());
 
-  url.search = sp.toString();
-  // Quando API_BASE é '', a URL final fica relativa (Vite proxy cuida)
-  return `${base}${p}${sp.toString() ? `?${sp}` : ''}`;
+  const query = sp.toString() ? `?${sp.toString()}` : '';
+
+  // quando API_BASE é absoluto (https://...), monta URL completa
+  if (base.startsWith('http://') || base.startsWith('https://')) {
+    return `${base}${p}${query}`;
+  }
+
+  // quando API_BASE é vazio (dev), usamos rota relativa e o proxy cuida
+  return `${p}${query}`;
 }
 
 // Helper: faz fetch e tenta parsear JSON sem quebrar
@@ -452,7 +460,8 @@ export async function getExerciciosDoPlano(idPlano) {
 }
 
 export async function updateCargaExercicio(idExercicio, carga) {
-  const { r, text, data } = await fetchJSON(`${API_BASE}/api/aluno_treino?action=update_carga`, {
+  const url = buildURL('/api/aluno_treino', { action: 'update_carga' });
+  const { r, text, data } = await fetchJSON(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ idExercicio, carga })
@@ -481,7 +490,9 @@ export async function uploadFotoAluno(idAluno, file) {
   form.append('idAluno', String(idAluno));
   form.append('foto', file);
 
-  const r = await fetch(`/api/upload_foto_aluno.php`, {
+  const url = buildURL('/api/upload_foto_aluno.php');
+
+  const r = await fetch(url, {
     method: 'POST',
     body: form
   });
@@ -517,7 +528,9 @@ export async function deletePlano(planoId, alunoId, tipo) {
 }
 
 export async function alterarSenha({ email, role = 'ALUNO', senhaAtual, novaSenha }) {
-  const res = await fetch('/api/alterar_senha', {
+  const url = buildURL('/api/alterar_senha');
+
+  const res = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, role, senhaAtual, novaSenha }),
@@ -534,6 +547,7 @@ export async function alterarSenha({ email, role = 'ALUNO', senhaAtual, novaSenh
   // sucesso esperado: { ok: true, message: 'senha_alterada' }
   return data || { ok: true };
 }
+
 export async function updateAlunoCredenciais({ idAluno, email, senha }) {
   const payload = { idAluno };
 
@@ -545,7 +559,9 @@ export async function updateAlunoCredenciais({ idAluno, email, senha }) {
     payload.senha = senha.trim();
   }
 
-  const res = await fetch("/api/aluno_update_credenciais.php", {
+  const url = buildURL('/api/aluno_update_credenciais.php');
+
+  const res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
@@ -564,6 +580,7 @@ export async function updateAlunoCredenciais({ idAluno, email, senha }) {
 
   return data;
 }
+
 export async function getAlunoSaude(idAluno) {
   const url = buildURL("/api/alunos", { id: idAluno });
   return fetchJSON(url);
