@@ -1,0 +1,396 @@
+/* ============== MONTAR TREINO (CSS dedicado) ============== */
+
+/* Header */
+.mt-header { gap: 12px; }
+.mt-back {
+  background: none; border: 0; font-size: 22px;
+  cursor: pointer; color: #174f33; line-height: 1;
+}
+.mt-h2 { margin: 0; }
+.mt-flex-spacer { margin-left: auto; }
+
+/* Alerts */
+.mt-alert { padding: 8px 12px; border-radius: 10px; margin: 8px 0; }
+.mt-alert--ok { background: #e8fff0; border: 1px solid #b7f0c2; }
+.mt-alert--err { background: #ffefef; border: 1px solid #f0b7b7; }
+
+/* Busca (estado 1) */
+.mt-searchbar { margin-top: 6px; }
+.mt-search { border-radius: 14px; }
+.mt-aluno-card { border-radius: 18px; }
+.mt-h3-clean { margin: 0; }
+.mt-p-tight { margin: 2px 0; }
+.mt-muted { margin-top: 6px; font-size: 12px; color: #888; }
+.mt-prev { margin-top: 8px; }
+.mt-prev-cap { font-size: 13px; color: #444; }
+.mt-prev-name { font-weight: 600; }
+
+/* Aluno selecionado + pills tipo */
+.mt-aluno-banner {
+  background: #e9eaeb; border-radius: 18px; padding: 12px;
+  display: flex; align-items: center; gap: 12px; margin-top: 6px;
+}
+.mt-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #3dd68c, #015329);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* corta a imagem em círculo */
+}
+
+.mt-circle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mt-circle-initials {
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.mt-flex1 { flex: 1; }
+.mt-aluno-nome { font-weight: 800; }
+.mt-aluno-doc { font-size: 12px; opacity: .8; }
+
+.mt-pills { display: flex; gap: 8px; }
+.mt-pill {
+  border-radius: 999px; padding: 6px 12px; font-weight: 800;
+  background: #e6eee9; color: #155e3b;
+}
+.mt-pill.is-active { background: #155e3b; color: #fff; }
+
+/* Lista de planos */
+.mt-plan-list { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
+.mt-plan-card {
+  background: #fff; border-radius: 18px; padding: 12px;
+  border: 1px solid #e4e4e7; box-shadow: 0 6px 18px rgba(0,0,0,.06);
+}
+
+/* Cabeçalho do card: nome + ações (botões empilhados) */
+.mt-plan-header {
+  display: grid;
+  grid-template-columns: 1fr auto; /* nome | coluna dos botões */
+  column-gap: 8px;
+  row-gap: 6px;
+  align-items: start;
+}
+
+/* Nome do plano */
+.mt-plan-name {
+  font-weight: 900; font-size: 18px;
+  min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  grid-column: 1; grid-row: 1;
+}
+.mt-pencil { font-size: 14px; opacity: .6; }
+
+/* Botões menores, curtos e empilhados */
+.mtreino .mt-plan-header .btn-editar,
+.mtreino .mt-plan-header .btn-restringir {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  width: 90px;                /* comprimento reduzido */
+  text-align: center;
+  justify-self: end;
+  flex-shrink: 0;
+}
+
+/* Posição dos botões no grid (um embaixo do outro) */
+.mtreino .mt-plan-header .btn-editar {
+  grid-column: 2;
+  grid-row: 1;
+}
+.mtreino .mt-plan-header .btn-restringir {
+  grid-column: 2;
+  grid-row: 2;
+  margin-top: 4px;
+}
+
+/* Duração */
+.mt-plan-duration { margin-top: 8px; line-height: 1.1; }
+.mt-plan-time { font-size: 24px; font-weight: 900; }
+.mt-plan-label { font-size: 16px; opacity: .8; }
+
+/* Botão + / Novo plano */
+.mt-add-wrapper { display: flex; justify-content: center; margin-top: 6px; }
+.mt-round { border-radius: 999px; padding: 8px 16px; font-weight: 800; }
+.mt-new-form { background: #e9eaeb; border-radius: 18px; padding: 12px; width: 100%; max-width: 480px; }
+.mt-new-title { font-weight: 800; margin-bottom: 8px; }
+.mt-new-row { display: flex; gap: 8px; }
+.mt-input { flex: 1; padding: 10px 12px; border-radius: 12px; border: 1px solid #e5e7eb; }
+
+/* Edição do plano */
+.mt-edit-row1 {
+  display: flex; gap: 8px; align-items: center; margin-top: 14px; flex-wrap: wrap;
+}
+.mt-name-input {
+  padding: 10px 12px; border-radius: 12px; border: 1px solid #e5e7eb;
+  max-width: 220px; flex: 1 1 260px;
+}
+
+/* Barra de busca abaixo do nome do plano */
+.mt-searchbar2 { margin-top: 10px; }
+.mt-search-wide { border-radius: 14px; width: 100%; }
+.mt-search-wide input { font-size: 16px; height: 44px; }
+
+/* Catálogo */
+.mt-catalog { margin-top: 6px; }
+.mt-ex-nome { font-weight: 800; }
+
+/* Adicionados */
+.mt-added { margin-top: 12px; }
+
+.mt-item-card {
+  background: #fff; border: 1px solid #e4e4e7; border-radius: 18px;
+  padding: 12px; box-shadow: 0 6px 18px rgba(0,0,0,.06); margin-bottom: 10px;
+}
+.mt-item-top { display: flex; align-items: center; gap: 8px; }
+.mt-item-name { font-weight: 900; font-size: 18px; flex: 1; }
+.mt-item-minus { font-weight: 900; margin-right: 6px; }
+
+/* Métricas */
+/* Métricas */
+.mt-metrics {
+  margin-top: 8px;
+  display: flex;                  /* trocado de grid pra flex */
+  justify-content: center;        /* 🔹 centraliza horizontalmente */
+  align-items: center;            /* 🔹 centraliza verticalmente */
+  gap: 20px;                      /* 🔹 espaço entre Série e Repetições */
+  flex-wrap: wrap;                /* 🔹 evita quebra feia no mobile */
+}
+
+.mt-metric {
+  background: #f2f3f5;
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 130px;     
+  height: 100px;              /* 🔹 tamanho fixo para alinhamento */
+}
+
+.mt-metric.is-disabled { opacity: .7; }
+.mt-metric-value { font-size: 24px; font-weight: 900; }
+.mt-metric-input {
+  width: 64px; text-align: center; font-size: 24px; font-weight: 900;
+  border: 0; background: transparent; outline: none;
+}
+/* remove as setas do input number em todos os navegadores */
+.mt-metric-input::-webkit-inner-spin-button,
+.mt-metric-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.mt-metric-label { display: flex; align-items: center; gap: 6px; }
+.mt-carga-zero { font-size: 24px; font-weight: 900; }
+
+/* Ações finais */
+.mt-bottom-actions {
+  display: flex; justify-content: space-between; margin-top: 12px;
+}
+
+
+/* container do botão "ver mais / ver menos" */
+.mt-ex-more {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center; /* centraliza */
+}
+
+/* deixa no formato pílula, usando o verde do btn-primary */
+.mt-more-btn {
+  border-radius: 999px;    /* bem arredondado */
+  padding: 12px 24px;
+  min-width: 220px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* ===== Filtro de tipo de exercício no catálogo ===== */
+.mt-ex-type-row {
+  margin: 8px 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mt-ex-type-label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.mt-ex-type-select {
+  border-radius: 999px;
+  border: 1px solid #d4d4d8;
+  padding: 4px 10px;
+  font-size: 0.9rem;
+  background: #fff;
+}
+
+/* se estiver usando tema escuro no admin algum dia */
+[data-theme="dark"] .mt-ex-type-select {
+  background: #18181b;
+  border-color: #3f3f46;
+}
+
+@media (max-width: 720px) {
+  .mt-ex-type-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mt-ex-type-select {
+    width: 100%;
+  }
+}
+
+/* Botão "Informações pessoais" amarelo */
+/* Botão personalizado "Informações pessoais" (estilo secundário, só que amarelo) */
+.mt-btn-ghost {
+  background: #e8e7eb;               /* amarelo */
+  color: #3a3a3a;                     /* texto escuro */
+  border: 1px solid #ddd;         /* borda amarela */
+  padding: 10px 12px;                 /* mesmo tamanho visual do secundário */
+  border-radius: 10px;                /* igual ao botão cinza */
+  font-size: 0.9rem;                  
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mt-btn-ghost:hover:not(:disabled) {
+  filter: brightness(0.98);
+}
+
+.mt-btn-ghost:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+
+
+/* Overlay do modal */
+.mt-saude-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Caixa do modal */
+.mt-saude-modal {
+  background: var(--card, #fff);
+  padding: 20px 22px;
+  border-radius: 16px;
+  box-shadow: var(--shadow, 0 6px 18px rgba(0, 0, 0, 0.18));
+  max-width: 560px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Cabeçalho */
+.mt-saude-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.mt-saude-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--purple);
+}
+
+.mt-saude-aluno-nome {
+  font-size: 0.95rem;
+  color: var(--muted, #666);
+}
+
+/* Grid dos campos */
+.mt-saude-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.mt-saude-item-full {
+  grid-column: 1 / -1;
+}
+
+.mt-saude-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted, #666);
+  margin-bottom: 2px;
+}
+
+.mt-saude-value {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text, #1d1d1f);
+  background: #f4f4f5;
+  border-radius: 10px;
+  padding: 6px 8px;
+}
+
+/* Rodapé */
+.mt-saude-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Mensagem de erro */
+.mt-saude-erro {
+  color: #b91c1c;
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+}
+
+/* Mantém os 3 botões (Salvar, Info, Excluir) na mesma linha em telas maiores */
+@media (min-width: 720px) {
+  .mtreino .mt-edit-row1 {
+    flex-wrap: nowrap;      /* não deixa quebrar linha */
+  }
+
+  .mtreino .mt-edit-row1 .mt-name-input {
+    flex: 1 1 auto;         /* deixa o input se ajustar */
+    max-width: none;        /* libera a largura pra caber tudo */
+  }
+}
+.mt-saude-objetivo {
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--card, #f3f4f6);
+}
+
+.mt-saude-objetivo .mt-saude-label {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.mt-saude-objetivo .mt-saude-value {
+  font-size: 1.05rem;
+}
+
+
+

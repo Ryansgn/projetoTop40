@@ -1,0 +1,70 @@
+/* ==========================================
+   TOKENS GLOBAIS — cores, sombras, tipografia
+   ========================================== */
+   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+
+:root{
+  /* roxo virou verde */
+  --purple: #015329;      /* cor principal */
+  --purple-700: #01391f;  /* variação mais escura p/ hover/bordas */
+--font-base: "Montserrat", sans-serif;
+  --bg:#f5f7fa;
+  --text:#1d1d1f;
+  --muted:#666;
+  --card:#fff;
+  --shadow:0 14px 36px rgba(0,0,0,.38);
+  --radius:14px;
+}
+
+
+/* ==========================================
+   RESET GLOBAL
+   ========================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-base);
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================
+   CLASSES UTILITÁRIAS
+   ========================================== */
+.text-muted {
+  color: var(--muted);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.shadow {
+  box-shadow: var(--shadow);
+}
+
+.rounded {
+  border-radius: var(--radius);
+}
+
+.bg-card {
+  background: var(--card);
+}

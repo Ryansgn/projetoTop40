@@ -1,0 +1,169 @@
+/* =======================
+   EditarAluno — layout base
+   ======================= */
+
+/* Tokens */
+:root{
+  --ea-container-lg: 600px;   /* largura fixa “grande” para desktop */
+  --ea-radius: 16px;
+  --ea-shadow: 0 6px 18px rgba(0,0,0,.08);
+  --ea-border: 1px solid #e8e8ec;
+  --ea-purple: var(--purple, #015329);
+  --ea-text: var(--text, #1d1d1f);
+}
+
+/* Container principal — largura fixa e centralizado */
+.ea4{
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--ea-container-lg);
+  margin: 0 auto;                 /* centraliza — não cresce só p/ direita */
+  padding: 12px 20px 24px;
+  color: var(--ea-text);
+}
+
+/* Cabeçalho */
+.ea4-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
+}
+.ea4-back{
+  background:none;
+  border:0;
+  font-size:20px;
+  color: var(--ea-purple);
+  cursor:pointer;
+}
+.ea4-title{
+  font-weight:900;
+  letter-spacing:.3px;
+}
+
+/* Avatar + nome (nome longo não altera a largura do container) */
+.ea4-id{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:8px 0 12px;
+  min-width: 0;                  /* necessário para truncar texto no flex */
+}
+.ea4-avatar{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  object-fit:cover;
+  background:#eee;
+  border:2px solid #f1f1f3;
+  flex: 0 0 auto;
+}
+.ea4-name{
+  flex: 1 1 auto;
+  min-width: 0;
+  font-weight:900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;       /* “...” em nomes gigantes */
+}
+
+/* Card */
+.ea4-card{
+  background:#fff;
+  border-radius: var(--ea-radius);
+  box-shadow: var(--ea-shadow);
+  padding:14px;
+  border: var(--ea-border);
+  width: 100%;
+  max-width: 100%;
+  height: auto;                   /* altura sempre conforme conteúdo */
+}
+
+/* Form grid */
+.ea4-form{
+  display:grid;
+  gap:10px;
+}
+.ea4-form label{
+  font-size: 13px;
+  color: #333;
+}
+.ea4-form input,
+.ea4-form select{
+  height:42px;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:0 12px;
+  outline:none;
+  background:#fff;
+}
+.ea4-form input:focus,
+.ea4-form select:focus{
+  border-color:#c7b3d8;
+  box-shadow:0 0 0 3px rgba(167,139,250,.18);
+}
+
+/* Ações */
+.ea4-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:12px;
+}
+.btn-primary{
+  background: var(--ea-purple);
+  color:#fff;
+  border:0;
+  padding:10px 14px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight: 700;
+}
+.btn-primary:disabled{ opacity:.7; cursor:not-allowed; }
+.btn-secondary{
+  background:#f3f3f5;
+  color:#1d1d1f;
+  border:1px solid #e4e4e7;
+  padding:10px 14px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight: 600;
+}
+
+/* Mensagens */
+.ea4-error{ color:#b42318; margin-top:8px; }
+.ea4-ok{ color:#137333; margin-top:8px; font-weight:700; }
+
+/* Responsivo — reduz somente o padding nas telas pequenas */
+@media (max-width: 480px){
+  .ea4{ padding: 12px 14px 20px; }
+}
+
+
+.ea4-escape{
+  /* sai do limite do pai (mesmo que ele tenha max-width: 720px) */
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.ea4-escape .ea4{
+  width: min(100%, var(--ea-container-lg)) !important;
+  max-width: var(--ea-container-lg) !important;
+  margin: 0 auto !important;
+}
+
+/* Evita gargalo interno */
+.ea4-card { max-width: 100% !important; }
+
+/* Se o componente estiver dentro de wrappers estreitos, solte-os só neste contexto */
+.ag-wrap:has(.ea4-escape),
+.mt-wrap:has(.ea4-escape),
+.ft:has(.ea4-escape),
+.aln-main:has(.ea4-escape),
+.aln-card:has(.ea4-escape){
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}

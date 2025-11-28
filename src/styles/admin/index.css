@@ -1,0 +1,84 @@
+/* ==========================================
+   IMPORTADOR CENTRAL DO PAINEL ADMIN
+   ========================================== */
+
+/* Tokens globais: cores, variáveis, reset */
+@import "./tokens.css";
+
+/* Componentes e estrutura base (drawer, botões, toast...) */
+@import "./common.css";
+
+/* Páginas específicas */
+@import "./home.css";            /* Tela principal / estatísticas */
+@import "./alunos.css";          /* Lista de alunos + busca e filtro */
+@import "./agendamentos.css";    /* Calendário + cards de agendamento */
+@import "./grupos.css";          /* Seção “Adicionados” (grupos / linhas) */
+@import "./montar-treino.css";   /* Tela Montar Treino específica */
+
+/* ====== MODAL GENÉRICO (confirmação sair, etc.) ====== */
+.app-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* ===== Override: Modal maior para logout (Admin + Aluno) ===== */
+.app-modal {
+  background: var(--card, #fff);
+  padding: 32px 32px;               /* mais espaço interno */
+  border-radius: 22px;              /* cantos mais arredondados */
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+  max-width: 480px;                 /* largura máxima fixa */
+  width: 90%;                       /* ocupa boa parte da tela */
+  text-align: center;
+}
+
+.app-modal h3 {
+  margin: 0 0 12px;
+  color: var(--purple);
+  font-size: 1.45rem;               /* título maior */
+  font-weight: 800;
+}
+
+.app-modal p {
+  margin: 0 0 22px;
+  color: var(--muted, #555);
+  font-size: 1.05rem;               /* texto um pouco maior */
+}
+
+/* área dos botões */
+.app-modal-actions {
+  margin-top: 0;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+/* botões maiores e confortáveis */
+.app-modal-btn {
+  flex: 1;
+  min-width: 120px;
+  height: 46px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+.app-modal-btn-cancel {
+  background: #e4e4e7;
+  color: #333;
+}
+
+.app-modal-btn-confirm {
+  background: var(--purple);
+  color: #fff;
+}
+

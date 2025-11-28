@@ -1,0 +1,301 @@
+/* ====== BASE / TOKENS ====== */
+:root {
+  --purple: #015329;
+  --purple-700: #01391f;
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --shadow: 0 14px 36px rgba(0,0,0,.38);
+  --radius-lg: 22px;
+  --font-base: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  background-color: var(--bg);
+}
+
+/* ===== WRAPPER GERAL (DIVIDE AO MEIO) ===== */
+.login-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bg);
+}
+
+/* ===== LADO ESQUERDO ===== */
+.login-left {
+  flex: 1;
+  background-color: #015329; /* cinza claro ocupando TODO o lado */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.logo-area .logo {
+  width: 420px;
+  max-width: 90%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ===== LADO DIREITO ===== */
+.login-right {
+  flex: 1.3; /* um pouco mais largo, igual exemplo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* ===== Caixa do formulário ===== */
+.form-area {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2.5rem 2.2rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+  max-height: 95vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== Títulos e textos ===== */
+.form-area h2 {
+  color: var(--text);
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+}
+
+.form-area p {
+  color: var(--muted);
+  font-size: 0.98rem;
+  margin-bottom: 1.8rem;
+}
+
+/* ===== Inputs ===== */
+.input-group {
+  text-align: left;
+  margin-bottom: 1.2rem;
+  width: 100%;
+}
+
+.input-group label {
+  font-weight: 600;
+  color: #374151;
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.9rem;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  transition: border 0.2s, box-shadow 0.2s, background 0.2s;
+  background: #f9fafb;
+}
+
+.input-group input:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 1px rgba(1, 83, 41, 0.18);
+  outline: none;
+  background: #ffffff;
+}
+
+/* ===== Botão de login ===== */
+.btn-login {
+  width: 100%;
+  padding: 0.95rem;
+  font-size: 1rem;
+  border-radius: 999px;
+  border: none;
+  background-color: var(--purple);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-top: 0.6rem;
+  font-weight: 600;
+  box-shadow: 0 10px 22px rgba(1, 83, 41, 0.3);
+}
+
+.btn-login:hover:not(:disabled) {
+  background-color: var(--purple-700);
+}
+
+.btn-login:disabled {
+  opacity: 0.7;
+  cursor: default;
+  box-shadow: none;
+}
+
+/* ===== Mensagem de erro ===== */
+.login-error {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: #b91c1c;
+}
+
+/* ====== RESPONSIVIDADE LOGIN DIVIDIDO ====== */
+@media (max-width: 768px) {
+  .login-wrapper {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* some o lado esquerdo no mobile */
+  .login-left {
+    display: none;
+  }
+
+  /* formulário ocupa a tela toda */
+  .login-right {
+    flex: 1;
+    width: 100%;
+    padding: 1.5rem;
+    justify-content: center;
+  }
+
+  .form-area {
+    max-width: 420px;
+    width: 100%;
+    padding: 2rem 1.8rem;
+  }
+}
+
+
+
+/* ====== CONTAINER DA SPLASH ====== */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg, #f5f7fa);
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* ====== CARD DA SPLASH ====== */
+.login-card.login-splash {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 40px 50px;
+  width: 360px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  min-height: 400px;
+  box-sizing: border-box;
+  animation: fadeIn 0.7s ease forwards;
+}
+
+.logo-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-img {
+  max-width: 180px;
+  height: auto;
+  display: block;
+  animation: fadeIn 1s ease forwards;
+  margin-bottom: 4px;        /* um pequeno respiro abaixo da logo */
+}
+
+/* Texto "ACADEMIA" abaixo do logo (pill preta) */
+.logo-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background: #000;
+  padding: 5px 30px;
+  border-radius: 20px;
+  margin-top: -20px;         /* ainda “sobe” um pouco, mas sem cortar */
+  margin-bottom: 5px;       /* aproxima do botão verde */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  animation: fadeInUp 1s ease forwards;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Botão "FAZER LOGIN" da splash */
+.btn-splash-login {
+  background: #015329;
+  color: #ffffff;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(1, 83, 41, 0.3);
+  transition: background 0.15s ease, transform 0.06s ease, box-shadow 0.12s ease;
+}
+
+.btn-splash-login:hover {
+  background: #01391f;
+}
+
+.btn-splash-login:active {
+  transform: translateY(1px) scale(0.99);
+  box-shadow: 0 5px 12px rgba(1, 83, 41, 0.28);
+}
+
+/* animação usada na splash */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* ====== RESPONSIVIDADE SPLASH ====== */
+@media (max-width: 600px) {
+  .login-container {
+    padding: 16px;
+    height: 100vh;
+  }
+
+  .login-card.login-splash {
+    width: 100%;
+    max-width: 340px;
+    padding: 28px 20px;
+    gap: 24px;
+    min-height: auto;
+  }
+
+  .logo-img {
+    max-width: 150px;
+  }
+
+  .btn-splash-login {
+    font-size: 0.95rem;
+  }
+}

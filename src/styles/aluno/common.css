@@ -1,0 +1,419 @@
+/* ====== Header ====== */
+/* ======== HEADER ALUNO - CORREÇÃO ======== */
+.aln-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 600px;
+  height: 56px;
+  padding: 0 16px;
+  background: linear-gradient(0deg, #c9c5c5, #c9c5c5);
+  border-bottom: 1px solid #e4e4e7;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+/* ÍCONE idêntico ao do admin, mas agora alinhado no flex */
+.aln-hamburger {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 6px 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.aln-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #4b4b4b;
+  border-radius: 2px;
+}
+
+.aln-hamburger span + span {
+  margin-top: 4px;
+}
+
+/* Logo centralizada no cabeçalho */
+.aln-logo {
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: 0.8px;
+  margin-left: 8px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ====== Conteúdo ====== */
+.aln-main {
+  padding: 16px 16px 32px;
+  max-width: 720px;      /* mesma largura dos cards quadrados */
+  margin: 0 auto;        /* centraliza o conteúdo */
+}
+
+.aln-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin: 6px 0 8px;
+}
+
+.aln-subtitle {
+  color: var(--muted);
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+
+/* CTA grande cinza */
+.aln-cta {
+  display: block;
+  width: 100%;
+  max-width: 980px;
+  margin: 16px auto 12px;
+  padding: 18px 24px;
+  background: #e9ecef;
+  color: #111;
+  border: 2px solid #d0d5db;
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: .5px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, .08);
+  transition: transform .08s ease, box-shadow .12s ease, background .12s ease;
+}
+
+.aln-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, .12);
+  background: #eef1f4;
+}
+
+.aln-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
+}
+
+/* Banner ilustrativo */
+.aln-banner {
+  display: none;
+}
+
+/* Card: Resumo semanal */
+.aln-card {
+  background: var(--card);
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  border: 1px solid #e9e9e9;
+}
+
+.aln-weekly h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.aln-kpis {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.aln-kpi {
+  flex: 1;
+  text-align: center;
+}
+
+.aln-kpi strong {
+  display: block;
+  font-size: 24px;
+}
+
+.aln-kpi span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ====== Drawer vertical roxo (igual ao admin) ====== */
+.aln-drawer {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 78%;
+  max-width: 300px;
+  background: var(--purple);
+  color: #fff;
+  transform: translateX(-100%);
+  transition: transform 0.28s ease;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 6px 0 18px rgba(0, 0, 0, 0.25);
+}
+
+.aln-drawer.open {
+  transform: translateX(0);
+}
+
+
+.aln-drawer-back {
+  background: none;
+  border: 0;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+  padding: 16px;
+}
+
+/* navegação interna do drawer */
+.aln-drawer-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 12px 16px;
+}
+
+/* itens do menu — harmonizados com o admin */
+.aln-drawer-item {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: none;
+}
+
+.aln-drawer-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateX(2px);
+}
+
+.aln-drawer-item:focus,
+.aln-drawer-item:active {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ícones do drawer */
+.aln-ico {
+  width: 20px;
+  height: 20px;
+  color: currentColor;
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
+/* texto do drawer */
+.aln-drawer-item span {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Overlay escuro quando o menu abre */
+.aln-overlay {
+  position: fixed;
+  inset: 0;
+  border: 0;
+  background: rgba(0, 0, 0, .35);
+  z-index: 15;
+}
+
+/* ====== Pequenos ajustes responsivos ====== */
+@media (min-width: 480px) {
+  .aln-main {
+    padding: 22px 22px 32px;
+  }
+
+  .aln-title {
+    font-size: 28px;
+  }
+
+  .aln-cta {
+    height: 70px;
+    font-size: 30px;
+  }
+}
+
+/* ====== PERFIL ====== */
+.aln-perfil {
+  padding: 16px;
+}
+
+.aln-perfil-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.aln-perfil-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 auto 0 0;
+}
+
+.aln-back {
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  color: #015329;
+}
+
+.aln-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .06);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.aln-perfil-bloco .aln-section-title {
+  font-size: 14px;
+  letter-spacing: .6px;
+  color: #444;
+  margin: 14px 0 8px;
+}
+
+.aln-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(#eaf6ff, #d7f0ff);
+  border: 2px solid #eee;
+  margin-bottom: 8px;
+}
+
+.aln-perfil-nome {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.aln-field {
+  margin-bottom: 10px;
+}
+
+.aln-field label {
+  display: block;
+  font-size: 12px;
+  color: #444;
+  margin-bottom: 4px;
+}
+
+.aln-read {
+  background: #e9e9ee;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Drawer — manter consistência do botão Sair */
+.aln-item {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.aln-item:hover {
+  background: rgba(92, 42, 122, .08);
+}
+
+.aln-logout {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.aln-logout:hover {
+  background: rgba(139, 27, 110, .08);
+}
+
+/* Estilo do campo de senha com o ícone de editar */
+.aln-input-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.aln-input-icon-btn {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.aln-input-icon-pencil {
+  font-size: 18px;
+}
+
+/* Estilo do botão de salvar nova senha */
+.aln-btn-primary {
+  background-color: #015329;
+  color: white;
+  border-radius: 30px;
+  padding: 14px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  width: auto;
+  display: block;
+  margin: 20px auto;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover efeito para o botão */
+.aln-btn-primary:hover {
+  background-color: #01391f;
+}
+
+
+/* ===========================
+   AJUSTES MOBILE - ALUNO
+   =========================== */
+@media (max-width: 640px) {
+  .aln-header {
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 12px;
+  }
+  .aln-header .aln-hamburger { flex: 0 0 auto; }
+  .aln-header .logo { flex: 1; display: flex; justify-content: center; }
+  .aln-header .logo img { max-width: 90px; height: auto; }
+  .aln-main { padding: 14px 12px 28px; }
+}
+
+@media (max-width: 380px) {
+  .aln-title { font-size: 22px; }
+  .aln-subtitle { font-size: 13px; }
+}
+
+/* ===== HEADER ALUNO – MODO ESCURO ===== */
+[data-theme="dark"] .aln-header {
+  background: linear-gradient(0deg, #020617, #020617);
+  border-bottom: 1px solid #111827;
+}
+
+/* deixa a logo mais visível no fundo escuro */
+[data-theme="dark"] .aln-header .logo img {
+  filter: brightness(0) invert(1);
+}

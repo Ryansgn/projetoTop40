@@ -1,0 +1,229 @@
+/* ===== Container principal ===== */
+.acc-main {
+  padding: 16px 16px 32px;
+  max-width: 520px;
+  margin: 0 auto;
+  font-size: 1rem;
+  transition: font-size 0.2s ease-in-out;
+}
+
+/* ===== Cabeçalho (título + botão restaurar) ===== */
+.acc-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.acc-reset-all {
+  border: 1px solid #d4d4d8;
+  background: #f9fafb;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.acc-reset-all:hover {
+  background: #e4e4e7;
+}
+
+/* ===== Cards ===== */
+.acc-card {
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: var(--shadow, 0 1px 3px rgba(15, 23, 42, 0.12));
+  padding: 12px 14px 14px;
+  margin-top: 12px;
+}
+
+.acc-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.acc-card-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(1, 83, 41, 0.08);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* ===== Textos ===== */
+.acc-card-title,
+.acc-card-subtitle,
+.acc-row-label,
+.acc-font-label,
+.acc-font-buttons button,
+.acc-row button,
+.acc-main p,
+.acc-main h2,
+.acc-main h3,
+.acc-main select {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+.acc-card-title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.acc-card-subtitle {
+  margin: 0;
+  color: #6b7280;
+}
+
+/* ===== Linhas internas ===== */
+.acc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* ===== Controle de fonte ===== */
+.acc-font-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 2px;
+}
+
+.acc-font-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ===== Botões ===== */
+.acc-card button,
+.acc-row button,
+.acc-font-buttons button {
+  border-radius: 999px;
+  border: 1px solid #d4d4d8;
+  background: #f9fafb;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.acc-card button:hover,
+.acc-row button:hover,
+.acc-font-buttons button:hover {
+  background: #e4e4e7;
+}
+
+/* ===== Lista de perfis ===== */
+.acc-profile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.acc-profile-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 6px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.015);
+}
+
+.acc-profile-text h4 {
+  margin: 0 0 2px;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.acc-profile-text p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #6b7280;
+}
+
+/* ===== Switch estilo toggle ===== */
+.acc-switch {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  border-radius: 999px;
+  border: 1px solid #d4d4d8;
+  background: #e5e7eb;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.acc-switch-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.35);
+  margin-left: 3px;
+  transition: transform 0.18s ease;
+}
+
+.acc-switch.on {
+  background: var(--purple);
+  border-color: var(--purple-700);
+}
+
+.acc-switch.on .acc-switch-thumb {
+  transform: translateX(16px);
+}
+
+
+/* ===== Responsivo ===== */
+@media (max-width: 480px) {
+  .acc-font-controls,
+  .acc-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .acc-profile-item {
+    align-items: flex-start;
+  }
+}
+
+.acessibilidade-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+
+  /* zera qualquer coisa de barra */
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.acessibilidade-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 auto 0 0;
+  text-transform: uppercase;
+}
+
+/* Remove o comportamento sticky APENAS na tela de acessibilidades */
+.acessibilidade-header {
+  position: static !important;
+  top: auto !important;
+}

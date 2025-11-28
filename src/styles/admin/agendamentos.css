@@ -1,0 +1,244 @@
+/* ==========================================
+   AGENDAMENTOS (Calendário inline + Cards)
+   ========================================== */
+
+/* ===== Calendário Inline (Admin) ===== */
+.cal {
+  width: 100%;
+  border: 1px solid #e4e4e7;
+  background: #fff;
+  border-radius: 16px;
+  padding: 12px 14px;
+  box-shadow: var(--shadow);
+  box-sizing: border-box;
+}
+
+.cal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.cal-title {
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
+  color: var(--text);
+}
+
+.cal-back,
+.cal-next {
+  background: #fff;
+  border: 1px solid #e4e4e7;
+  border-radius: 10px;
+  width: 28px;
+  height: 28px;
+  line-height: 26px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--purple);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.cal-back:hover,
+.cal-next:hover {
+  background: #f3f0f5;
+}
+
+.cal-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid #e9eaee;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+}
+
+.cal-weekday {
+  text-align: center;
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  width: 100%;
+}
+
+.cal-cell {
+  aspect-ratio: 1 / 1;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text);
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.cal-cell:hover {
+  border-color: #d1d5db;
+  background: #f6f6f6;
+}
+
+.cal-cell.other {
+  color: #c3c7cf;
+}
+
+.cal-cell.selected {
+  background: var(--purple);
+  color: #fff;
+  border-color: var(--purple);
+}
+
+/* ===== Cards de Agendamentos ===== */
+.adm-a-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.adm-a-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0 12px;
+}
+
+.adm-a-cards {
+  display: grid;
+  gap: 10px;
+}
+
+.adm-a-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #e4e4e7;
+  border-radius: 16px;
+  padding: 10px 12px;
+  box-shadow: var(--shadow);
+}
+
+.adm-a-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.adm-a-slot {
+  background: #eee;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 800;
+  color: #4b5563;
+}
+
+.adm-a-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.adm-a-badge {
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-weight: 700;
+}
+
+.adm-a-cap {
+  color: #6b7280;
+  font-weight: 700;
+}
+
+.adm-a-total {
+  margin-top: 12px;
+  text-align: center;
+  background: var(--purple);
+  color: #fff;
+  font-weight: 800;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.adm-next-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.adm-next {
+  background: #e8e7eb;
+  border: 1px solid #ddd;
+  color: #1d1d1f;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.adm-next:hover {
+  filter: brightness(0.98);
+}
+
+/* ===== Linha superior (seletores e input) ===== */
+.adm-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.adm-top-row select,
+.adm-top-row input {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 0.95rem;
+  color: var(--text);
+  box-shadow: var(--shadow);
+  transition: border-color 0.15s ease;
+}
+
+.adm-top-row select:focus,
+.adm-top-row input:focus {
+  border-color: var(--purple);
+  outline: none;
+}
+
+.adm-top-row .btn-primary {
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.adm-top-row .btn-primary:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 480px) {
+  .cal {
+    padding: 8px 10px;
+    border-radius: 14px;
+  }
+  .cal-title {
+    font-size: 15px;
+  }
+  .cal-cell {
+    font-size: 12px;
+  }
+}

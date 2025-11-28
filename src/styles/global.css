@@ -1,0 +1,10 @@
+/* src/styles/global.css */
+:root{
+  --bg:#f3f5f9;
+  --text:#1f2937;
+  --primary:#5b5bd6;
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Arial}
+button{font:inherit}

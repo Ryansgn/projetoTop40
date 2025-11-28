@@ -1,0 +1,532 @@
+/* ==========================================
+   LAYOUT BASE E COMPONENTES COMUNS (Admin)
+   ========================================== */
+
+/* Layout principal */
+.adm {
+  min-height: 100dvh;
+}
+
+/* ===== HEADER SUPERIOR ===== */
+.adm-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: center;  /* Centraliza o conteúdo horizontalmente */
+  align-items: center;      /* Alinha verticalmente */
+  gap: 550px;
+  height: 56px;
+  padding: 0 16px;
+  background: linear-gradient(0deg, #c9c5c5, #c9c5c5);
+  border-bottom: 1px solid #e4e4e7;
+}
+
+.logo img {
+  max-width: 100px;         /* Ajusta a largura máxima */
+  height: auto;             /* Mantém a proporção da imagem */
+  object-fit: contain;      /* Garante que a imagem se ajuste sem cortar */
+}
+
+
+.hamburger {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 6px 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #4b4b4b;
+  border-radius: 2px;
+}
+
+.hamburger span + span {
+  margin-top: 4px;
+}
+
+.logo {
+  margin: 0 auto 0 0;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+
+/* ===== DRAWER LATERAL ===== */
+.drawer {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 78%;
+  background: var(--purple);
+  color: #fff;
+  transform: translateX(-100%);
+  transition: transform 0.28s ease;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 6px 0 18px rgba(0, 0, 0, 0.25);
+  max-width: 300px;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-top .back {
+  background: none;
+  border: 0;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+  padding: 16px;
+}
+
+.drawer-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 8px;
+}
+
+.drawer-nav .item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.drawer-nav .item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateX(2px);
+}
+
+.drawer-nav .item:focus,
+.drawer-nav .item:active {
+  background: rgba(255, 255, 255, 0.15);
+  outline: none;
+}
+
+/* ===== ÍCONES ===== */
+.ico {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  opacity: 0.9;
+}
+
+.ico.user {
+  border-radius: 50%;
+}
+
+.ico.plan {
+  border-radius: 4px;
+  position: relative;
+}
+
+.ico.plan::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: 8px;
+  height: 2px;
+  background: #fff;
+  opacity: 0.9;
+}
+
+.ico.calendar {
+  border-radius: 4px;
+  position: relative;
+}
+
+.ico.calendar::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  top: 6px;
+  height: 2px;
+  background: #fff;
+}
+
+.ico.calendar::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  bottom: 6px;
+  height: 10px;
+  border-top: 2px solid #fff;
+  opacity: 0.9;
+}
+
+.ico.group {
+  border-radius: 50%;
+  box-shadow: 10px 0 0 0 #fff inset;
+}
+
+/* ===== BOTÕES GERAIS ===== */
+.btn-primary {
+  background: var(--purple);
+  color: #fff;
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: filter 0.15s ease, transform 0.1s ease;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: #f3f3f5;
+  color: var(--text);
+  border: 1px solid #e4e4e7;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background: #b8b8b8;
+}
+
+.btn-danger {
+  background: #e00000;
+  border: 1px solid #f5b5b5;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.04s ease, box-shadow 0.15s ease;
+}
+
+.btn-danger:hover {
+  filter: brightness(0.98);
+}
+
+.btn-danger:active {
+  transform: translateY(1px);
+}
+
+.btn-danger:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ===== TOAST GLOBAL ===== */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  background: #333;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  opacity: 0.95;
+  animation: fadein 0.3s ease, fadeout 0.3s ease 2.7s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+/* ==========================================
+   MODAL — Restringir / liberar aluno (atualizado)
+   ========================================== */
+
+.adm-modal-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.36);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 1000;
+}
+
+.adm-modal-card {
+  width: min(520px, 95vw);
+  background: var(--card);
+  border-radius: 20px;
+  padding: 20px 20px 16px;
+  animation: modalIn 0.22s ease-out;
+  transition: box-shadow 0.3s ease;
+}
+
+/* 🔴 sombra vermelha ao redor */
+.adm-modal-card--restringir {
+  border: 2px solid #dc2626;
+  box-shadow: 0 0 20px 5px rgba(220, 38, 38, 0.6);
+}
+
+/* 🟢 sombra verde ao redor */
+.adm-modal-card--liberar {
+  border: 2px solid #16a34a;
+  box-shadow: 0 0 20px 5px rgba(22, 163, 74, 0.6);
+}
+
+/* HEADER */
+.adm-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.adm-modal-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.adm-modal-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.adm-modal-avatar-fallback {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--purple);
+}
+
+.adm-modal-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.adm-modal-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+  font-size: 0.85rem;         /* 🔹 antes 0.7rem */
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 6px 14px;          /* 🔹 antes 4px 10px */
+  border-radius: 999px;
+  font-weight: 700;
+  min-width: 160px;    
+  margin-bottom: 18px;       /* 🔹 garante largura uniforme */
+}
+
+
+.adm-modal-card--restringir .adm-modal-label {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.adm-modal-card--liberar .adm-modal-label {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.adm-modal-name {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.adm-modal-meta {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* BODY */
+.adm-modal-body {
+  margin-top: 4px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.adm-modal-body p {
+  margin: 4px 0;
+}
+
+.adm-modal-body-small {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* FOOTER */
+.adm-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.adm-modal-btn-sec,
+.adm-modal-btn-main {
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.18s ease, transform 0.06s ease;
+}
+
+.adm-modal-btn-sec {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.adm-modal-btn-main {
+  color: #fff;
+}
+
+.adm-modal-card--restringir .adm-modal-btn-main {
+  background: #dc2626;
+}
+
+.adm-modal-card--liberar .adm-modal-btn-main {
+  background: #16a34a;
+}
+
+.adm-modal-btn-sec:hover,
+.adm-modal-btn-main:hover {
+  filter: brightness(0.95);
+}
+
+.adm-modal-btn-sec:active,
+.adm-modal-btn-main:active {
+  transform: translateY(1px);
+}
+
+.adm-modal-btn-sec:disabled,
+.adm-modal-btn-main:disabled {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
+}
+
+/* animação de entrada */
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* ===========================
+   AJUSTES MOBILE - ADMIN
+   =========================== */
+@media (max-width: 640px) {
+  .adm-header {
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 12px;
+  }
+  .adm-header .hamburger { flex: 0 0 auto; }
+  .adm-header .logo { flex: 1; display: flex; justify-content: center; }
+  .adm-header .logo img { max-width: 90px; }
+  .adm-main { padding: 14px 12px 28px; }
+}
+
+@media (max-width: 380px) {
+  .headline { font-size: 20px; }
+  .subhead { font-size: 13px; }
+}
+
+
+
+.file-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-btn {
+  background: #015329;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  width: fit-content;
+  transition: 0.2s ease;
+}
+
+.file-btn:hover {
+  filter: brightness(1.1);
+}
+
+.file-name {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* ===== HEADER ADMIN – MODO ESCURO ===== */
+[data-theme="dark"] .adm-header {
+  background: linear-gradient(0deg, #020617, #020617);
+  border-bottom: 1px solid #111827;
+}
+
+/* logo clara em cima do header escuro */
+[data-theme="dark"] .adm-header .logo img {
+  filter: brightness(0) invert(1);
+}

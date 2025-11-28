@@ -1,0 +1,161 @@
+/* ==========================================
+   GRUPOS POR TURNO / “ADICIONADOS” (base)
+   ========================================== */
+
+.adm-g-section {
+  background: #fff;
+  border: 1px solid #e9eaee;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+
+.adm-g-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px 8px;
+  border-bottom: 1px solid #f0f1f3;
+  margin-bottom: 8px;
+}
+
+.adm-g-header h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.adm-g-total {
+  background: var(--purple);
+  color: #fff;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 12px;
+}
+
+.adm-g-rows {
+  display: grid;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+/* ===== Linha (nome | controles) ===== */
+.adm-g-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #eceef2;
+  border-radius: 14px;
+  padding: 10px 12px;
+  overflow: hidden; /* mantém tudo dentro das bordas */
+}
+
+/* Pílula com o nome do exercício */
+.adm-g-pill {
+  background: #f3f0f5;
+  color: var(--purple);
+  font-weight: 800;
+  padding: 8px 12px;
+  border-radius: 999px;
+  line-height: 1.1;
+}
+
+/* Faixa de controles à direita */
+.adm-g-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  max-width: 100%;
+  flex: 0 0 auto; /* não encolher além do conteúdo */
+}
+
+/* ===== Badges e inputs numéricos ===== */
+.adm-g-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 6px 10px;
+  font-weight: 700;
+  color: #4b5563;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .02) inset;
+}
+
+.adm-g-badge input {
+  width: 66px;
+  height: 34px;
+  padding: 0 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+  text-align: center;
+  font-weight: 700;
+  color: #111827;
+  outline: none;
+}
+
+.adm-g-badge input:focus {
+  border-color: #a78bfa;
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, .25);
+}
+
+/* Botões de ação na linha */
+.adm-g-right .btn-restringir {
+  position: static;
+  margin-left: 4px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, .2);
+  white-space: nowrap;
+}
+
+.adm-g-right .btn-restringir:hover {
+  filter: brightness(.96);
+}
+
+.adm-g-right .btn-restringir:active {
+  transform: translateY(1px);
+}
+
+/* Ações simples extras (se usadas) */
+.restringir {
+  background: #b91c1c;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.retirar {
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 640px) {
+  .adm-g-row {
+    grid-template-columns: 1fr;   /* nome em cima, controles embaixo */
+    gap: 8px;
+  }
+  .adm-g-right {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    margin-left: 0;
+  }
+  .adm-g-badge input {
+    width: 60px;
+    height: 32px;
+  }
+}

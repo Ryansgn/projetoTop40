@@ -1,0 +1,372 @@
+/* ===== AGENDAMENTO (aluno) ===== */
+.ag-wrap{max-width:720px;margin:0 auto;padding:16px}
+.ag-header{display:flex;align-items:center;gap:8px;margin-top:8px}
+.ag-title{margin:0;font-size:22px;letter-spacing:.5px}
+
+.ag-box{
+  background:#fff;border:1px solid #e4e4e7;border-radius:16px;
+  padding:14px;margin-top:14px;box-shadow:var(--shadow);
+}
+.ag-box-title{font-weight:600;margin-bottom:8px}
+.ag-date-line{display:flex;flex-direction:column;gap:8px}
+.ag-date{
+  padding:10px 12px;border:1px solid #e4e4e7;border-radius:12px;background:#fff
+}
+.ag-date-label{color:var(--muted)}
+
+.ag-sub{margin:0 0 10px 0;font-size:18px}
+.ag-sub.center{text-align:center}
+
+.ag-chips{display:flex;flex-wrap:wrap;gap:8px}
+.ag-chip{
+  padding:10px 14px;border-radius:999px;border:1px solid #d1d5db;
+  background:#fff;color:#111;cursor:pointer;font-weight:600;
+  transition:transform .05s ease, box-shadow .15s ease;
+}
+.ag-chip.on{background:var(--purple);border-color:var(--purple);color:#fff}
+.ag-chip.disabled{opacity:.45;cursor:not-allowed}
+.ag-chip:active{transform:scale(.98)}
+.ag-chip-count{margin-left:8px;font-size:12px;opacity:.8}
+
+.ag-cta{
+  width:100%;padding:14px 16px;border-radius:14px;border:0;
+  background:var(--purple);color:#fff;font-weight:800;letter-spacing:.4px;
+  box-shadow:var(--shadow);cursor:pointer
+}
+.ag-cta:disabled{opacity:.6;cursor:not-allowed}
+
+.ag-msg{margin-top:8px;color:#6b7280}
+
+.ag-list{margin-top:18px}
+.ag-cards{display:grid;gap:12px}
+.ag-card{
+  display:flex;align-items:center;justify-content:space-between;
+  background:#fff;border:1px solid #e4e4e7;border-radius:16px;padding:12px;
+  box-shadow:var(--shadow);
+}
+.ag-card-left{display:flex;flex-direction:column;gap:4px}
+.ag-badge{
+  font-weight:700;background:#eee;display:inline-block;padding:4px 10px;
+  border-radius:999px
+}
+.ag-time{font-weight:800;color:var(--purple);font-size:16px}
+.ag-tag{
+  font-size:12px;color:#6b7280;background:#e5e7eb;border-radius:999px;
+  padding:2px 8px;display:inline-block
+}
+.ag-cancel{
+  padding:8px 12px;border-radius:12px;border:1.4px solid #ef4444;
+  color:#ef4444;background:#fff;font-weight:700;cursor:pointer
+}
+
+.ag-empty{color:var(--muted);padding:6px 0}
+
+/* ===== Calendário Inline (versão compacta) ===== */
+.cal {
+  border: 1px solid #e4e4e7;
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px 1px;
+  box-shadow: var(--shadow);
+  max-width: 400px; /* controla a largura total */
+  max-height: 100;
+  margin: 0 auto;
+}
+
+.cal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.cal-title {
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
+}
+
+.cal-back,
+.cal-next {
+  background: #fff;
+  border: 1px solid #e4e4e7;
+  border-radius: 10px;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--purple);
+}
+
+.cal-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid #e9eaee;
+  margin-bottom: 4px;
+  padding-bottom: 2px;
+}
+
+.cal-weekday {
+  text-align: center;
+  font-size: 11px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.cal-cell {
+  aspect-ratio: 1/1;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: 0.1s ease;
+}
+
+.cal-cell:hover {
+  border-color: #d1d5db;
+  background: #f6f6f6;
+}
+
+.cal-cell.other {
+  color: #c3c7cf;
+}
+
+.cal-cell.selected {
+  background: var(--purple);
+  color: #fff;
+  border-color: var(--purple);
+}
+
+@media (max-width: 480px) {
+  .cal {
+    max-width: 90%;
+    padding: 6px;
+  }
+  .cal-cell {
+    font-size: 12px;
+    border-radius: 8px;
+  }
+}
+
+/* mobile spacing */
+@media (max-width:480px){
+  .ag-wrap{padding:12px}
+}
+
+/* Cabeçalho fixo fora do container .ft */
+.acessibilidade-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 56px;
+  padding: 0 16px;
+  background: linear-gradient(0deg, #efefef, #efefef);
+  border-bottom: 1px solid #e4e4e7;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.acessibilidade-header h1 {
+  margin: 0;
+  font-size: 20px;  /* Ajuste o tamanho da fonte conforme necessário */
+  font-weight: bold;
+}
+
+.acessibilidade-header button {
+  background: none;
+  border: 0;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--purple);
+}
+
+/* ===========================================
+   MODO ESCURO — Agendamento (aluno)
+   =========================================== */
+
+/* Cards principais (Calendário, Turno, Horários, Minhas reservas) */
+:root[data-theme="dark"] .ag-box {
+  background: #020617;
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+/* Linha com a data selecionada */
+:root[data-theme="dark"] .ag-date {
+  background: #020617;
+  border-color: rgba(148, 163, 184, 0.35);
+  color: var(--text);
+}
+
+/* Chips de turno / horário */
+:root[data-theme="dark"] .ag-chip {
+  background: #020617;
+  color: var(--text);
+  border-color: rgba(148, 163, 184, 0.45);
+}
+
+:root[data-theme="dark"] .ag-chip.on {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: #fff;
+}
+
+/* Lista "Minhas reservas" */
+:root[data-theme="dark"] .ag-card {
+  background: #020617;
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+:root[data-theme="dark"] .ag-badge {
+  background: #0f172a;
+  color: var(--text);
+}
+
+:root[data-theme="dark"] .ag-tag {
+  background: #0f172a;
+  color: var(--muted);
+}
+
+/* Botão CANCELAR */
+:root[data-theme="dark"] .ag-cancel {
+  background: transparent;
+  color: #fecaca;
+  border-color: #fca5a5;
+}
+
+/* ===== Calendário inline no modo escuro (aluno + admin) ===== */
+:root[data-theme="dark"] .cal {
+  background: #020617;
+  border-color: rgba(148, 163, 184, 0.35);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
+}
+
+:root[data-theme="dark"] .cal-weekday {
+  color: #9ca3af;
+}
+
+:root[data-theme="dark"] .cal-cell {
+  background: #020617;
+  color: var(--text);
+  border-color: transparent;
+}
+
+:root[data-theme="dark"] .cal-cell:hover {
+  background: #111827;
+  border-color: #4b5563;
+}
+
+:root[data-theme="dark"] .cal-cell.other {
+  color: #4b5563;
+}
+
+:root[data-theme="dark"] .cal-cell.selected {
+  background: var(--purple);
+  color: #fff;
+  border-color: var(--purple);
+}
+
+
+/* ===========================================
+   ALTO CONTRASTE — AGENDAMENTO (ALUNO)
+   =========================================== */
+
+/* Cards principais (calendário, turno, horários, reservas) */
+:root[data-high-contrast="on"] .ag-box,
+:root[data-high-contrast="on"] .ag-card {
+  background: #000000 !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+/* Linha da data selecionada */
+:root[data-high-contrast="on"] .ag-date {
+  background: #000000 !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Chips de turno / horário */
+:root[data-high-contrast="on"] .ag-chip {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+:root[data-high-contrast="on"] .ag-chip.on {
+  background: #e100ff !important;   /* magenta do alto contraste */
+  border-color: #e100ff !important;
+  color: #000000 !important;
+}
+
+/* Badge e tags nas reservas */
+:root[data-high-contrast="on"] .ag-badge,
+:root[data-high-contrast="on"] .ag-tag {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* Botão cancelar reserva */
+:root[data-high-contrast="on"] .ag-cancel {
+  background: #000000 !important;
+  color: #ffb4b4 !important;
+  border-color: #ffb4b4 !important;
+}
+
+/* ========== Calendário inline em alto contraste ========== */
+:root[data-high-contrast="on"] .cal {
+  background: #000000 !important;
+  border-color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+:root[data-high-contrast="on"] .cal-title,
+:root[data-high-contrast="on"] .cal-weekday {
+  color: #ffffff !important;
+}
+
+:root[data-high-contrast="on"] .cal-back,
+:root[data-high-contrast="on"] .cal-next {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* dias do calendário */
+:root[data-high-contrast="on"] .cal-cell {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+:root[data-high-contrast="on"] .cal-cell.other {
+  color: #9ca3af !important; /* dias fora do mês um pouco apagados */
+}
+
+:root[data-high-contrast="on"] .cal-cell:hover {
+  background: #111111 !important;
+  border-color: #ffffff !important;
+}
+
+/* dia selecionado */
+:root[data-high-contrast="on"] .cal-cell.selected {
+  background: #e100ff !important;
+  color: #000000 !important;
+  border-color: #e100ff !important;
+}

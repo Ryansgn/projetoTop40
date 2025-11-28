@@ -1,0 +1,175 @@
+/* ====== Conteúdo ====== */
+/* Main do aluno com a mesma largura do agendamento (720px) */
+.aln-main {
+  padding: 16px 16px 32px;
+  max-width: 700px;     /* mesma largura do .ag-wrap e .mt-wrap */
+  margin: 0 auto;       /* centraliza na tela */
+}
+
+.aln-title{ font-size: 26px; font-weight: 800; margin: 6px 0 8px; }
+.aln-subtitle{ color: var(--muted); line-height: 1.45; margin-bottom: 14px; }
+
+/* CTA grande cinza */
+.aln-cta{
+  display:block;
+  width:100%;
+  max-width:980px;
+  margin:16px auto 12px;
+  padding:18px 24px;
+  background:#e9ecef;        /* cinza um pouco mais claro */
+  color:#111;
+  border:2px solid #d0d5db;  /* borda mais marcada */
+  border-radius:14px;
+  font-weight:800;
+  font-size:28px;
+  letter-spacing:.5px;
+  box-shadow:0 4px 18px rgba(0,0,0,.08);
+  transition:transform .08s ease, box-shadow .12s ease, background .12s ease;
+}
+.aln-cta:hover{
+  transform:translateY(-1px);
+  box-shadow:0 6px 22px rgba(0,0,0,.12);
+  background:#eef1f4;
+}
+.aln-cta:active{
+  transform:translateY(0);
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+/* Banner ilustrativo */
+.aln-banner { display: none; }
+
+/* Card: Resumo semanal */
+.aln-card{
+  background: var(--card); margin-top:16px; padding:16px;
+  border-radius: 14px; box-shadow: var(--shadow);
+  border: 1px solid #e9e9e9;
+}
+.aln-weekly h3{ margin:0 0 10px 0; font-size:18px; font-weight:800; }
+.aln-kpis{ display:flex; justify-content:space-between; gap:16px; }
+.aln-kpi{ flex:1; text-align:center; }
+.aln-kpi strong{ display:block; font-size:24px; }
+.aln-kpi span{ display:block; color: var(--muted); font-size: 13px; }
+
+/* ===== Carrossel no AlunoDashboard ===== */
+.admin-carousel {
+  padding: 16px 18px 20px;
+  min-height: 230px;           /* Ajusta o banner para a altura desejada */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Cada slide */
+.admin-slide {
+  display: none;
+  gap: 12px;
+}
+
+.admin-slide.is-active {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Adiciona alinhamento do conteúdo dentro do slide */
+}
+
+/* Imagem do slide */
+.banner-image-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  max-height: 200px;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Conteúdo de texto do banner */
+.banner-content {
+  margin-top: 10px;
+}
+
+.banner-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #eef4ff;
+  color: var(--purple);
+  margin-bottom: 4px;
+}
+
+.banner-title {
+  font-size: 18px;
+  margin: 4px 0 4px;
+  font-weight: 700;
+}
+
+.banner-text {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.banner-actions {
+  margin-top: 10px;
+}
+
+.banner-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  background: var(--purple);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.banner-cta:hover {
+  filter: brightness(0.95);
+}
+
+.admin-dots {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.admin-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  background: #d4d4d8;
+  cursor: pointer;
+}
+
+.admin-dot.is-active {
+  width: 18px;
+  background: var(--purple);
+}
+
+/* layout maior: imagem + texto lado a lado em telas largas */
+@media (min-width: 640px) {
+  .admin-slide.is-active {
+    flex-direction: row;
+  }
+
+  .banner-image-wrapper {
+    flex: 1.1;
+    max-height: 230px;
+  }
+
+  .banner-content {
+    flex: 1;
+  }
+}

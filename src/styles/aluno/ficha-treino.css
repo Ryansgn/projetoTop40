@@ -1,0 +1,543 @@
+/* =======================================================
+   FICHA DE TREINO (Aluno)
+   ======================================================= */
+/* Removendo o container extra para tornar a estrutura mais simples */
+.ft {
+  display: block;
+  min-height: auto;  /* Remove o min-height, que estava causando a rolagem */
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Mantém o cabeçalho fixo como antes */
+.ft-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;  /* Mantém o alinhamento à esquerda */
+  height: 56px;
+  padding: 0 16px;
+  background: linear-gradient(0deg, #efefef, #efefef);
+  border-bottom: 1px solid #e4e4e7;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.ft-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Outros ajustes de layout podem ser feitos para manter a página limpa e sem rolagem */
+
+.ft-back {
+  background: none;
+  border: 0;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--purple);
+}
+
+/* Tabs superiores/inferiores */
+.ft-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px 6px;
+  border-bottom: 1px solid #ececec;
+  background: var(--bg);
+}
+.ft-tabs button {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #eee;
+  border: 1px solid #e3e3e3;
+  cursor: pointer;
+  font-weight: 700;
+  color: #222;
+  transition: background 0.15s ease;
+}
+.ft-tabs button.active {
+  background: #fff;
+  border-color: #d5d5d5;
+  color: var(--purple);
+  box-shadow: 0 0 0 1.5px var(--purple) inset;
+}
+
+/* Mensagens de estado */
+.ft-state {
+  padding: 16px;
+  color: var(--muted);
+  text-align: center;
+}
+.ft-err {
+  padding: 12px;
+  margin: 12px;
+  border-radius: 10px;
+  background: #ffe9ea;
+  color: #a6001a;
+  text-align: center;
+}
+
+/* Lista de planos */
+.ft-list {
+  padding: 14px;
+  display: grid;
+  gap: 14px;
+}
+.ft-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 12px;
+  border: 1px solid #eee;
+}
+.ft-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 4px 6px;
+}
+.ft-card-title strong {
+  font-size: 18px;
+}
+.ft-card-dur {
+  text-align: right;
+  line-height: 1.1;
+}
+.ft-card-dur b {
+  font-size: 16px;
+  display: block;
+}
+.ft-card-dur span {
+  font-size: 12px;
+  color: var(--muted);
+}
+.ft-card-actions {
+  padding: 8px 4px 4px;
+}
+
+/* Botões gerais */
+.ft-btn {
+  border: 0;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  transition: 0.2s ease;
+}
+.ft-btn.primary {
+  background: var(--purple);
+  color: #fff;
+}
+.ft-btn.small {
+  padding: 8px 12px;
+  background: #eee;
+  font-weight: 700;
+}
+.ft-btn.finish {
+  width: 100%;
+  background: var(--purple);
+  color: #fff;
+  font-size: 16px;
+}
+.ft-btn:hover {
+  filter: brightness(1.05);
+}
+
+/* Lista de exercícios */
+.ft-exercises {
+  margin-top: 10px;
+  padding-top: 4px;
+}
+.ft-exe {
+  border: 1px solid #eee;
+  border-radius: 14px;
+  padding: 10px;
+  margin: 10px 0;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+.ft-exe-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.ft-exe-head h3 {
+  margin: 0;
+  font-size: 18px;
+}
+.ft-exe-media {
+  margin-top: 8px;
+}
+.ft-media-ph {
+  height: 140px;
+  border-radius: 12px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Grid de séries/repetições/carga */
+.ft-exe-grid {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.ft-exe-grid > div {
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+}
+.ft-exe-grid b {
+  display: block;
+  font-size: 20px;
+}
+.ft-exe-grid span {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.ft-finish {
+  padding: 8px 0 4px;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .ft-header h1 { font-size: 18px; }
+  .ft-tabs button { font-size: 14px; padding: 8px 10px; }
+  .ft-card-title strong { font-size: 16px; }
+  .ft-exe-head h3 { font-size: 16px; }
+  .ft-btn.primary,
+  .ft-btn.finish { font-size: 14px; padding: 9px 12px; }
+}
+.ft-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.ft-carga {
+  width: 70px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+
+.ficha-treino {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+  background: var(--bg);
+}
+
+.ficha-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 16px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #eee;
+  color: var(--text);
+  font-weight: 600;
+}
+.tab.active {
+  background: var(--card);
+  border-bottom: 3px solid var(--purple);
+}
+
+.exercicio-card {
+  background: var(--card);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.ex-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.assistir {
+  background: var(--purple);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+}
+
+.ex-img {
+  width: 100%;
+  border-radius: 12px;
+  margin: 8px 0;
+}
+
+.ex-info {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.finalizar-btn {
+  background: var(--purple);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 12px;
+  font-weight: bold;
+  margin-top: 16px;
+}
+
+
+/* ===== Botão INICIAR (pílula roxa com ícone circular) ===== */
+.ft-iniciar {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--purple);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: .3px;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 16px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.12);
+  cursor: pointer;
+}
+
+.ft-iniciar-ico {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #fff;                 /* círculo branco */
+  color: var(--purple);              /* ícone roxo */
+}
+
+.ft-iniciar-txt {
+  transform: translateY(1px);        /* microajuste óptico */
+}
+
+/* Ajustes responsivos sutis */
+@media (hover:hover) {
+  .ft-iniciar:hover { filter: brightness(1.03); }
+}
+
+/* ====== Vídeo da Ficha de Treino (tamanho editável por CSS) ====== */
+
+/* largura padrão do container do vídeo (mude aqui para ficar bem menor) */
+/* ====== vídeo da ficha ====== */
+.ft-exe-media {
+  display: flex;
+  justify-content: center;   /* centraliza o conteúdo */
+  align-items: center;
+  width: 100%;                /* ocupa toda a largura do card */
+  margin: 8px 0;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* iframe do vídeo (tamanho ajustável) */
+.ft-video-embed {
+  display: block;
+  width: 90%;                /* controla a largura real do vídeo */
+  aspect-ratio: 16 / 6;      /* define a altura proporcional */
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+/* se quiser ainda mais compacto */
+.ft-video-embed.compact {
+  aspect-ratio: 16 / 5;
+}
+
+.ficha-header h1 {
+  margin: 0;
+  font-size: 20px;  /* Diminuído o tamanho da fonte */
+  font-weight: bold;
+}
+
+/* =======================================================
+   Ajustes de tema escuro para a FICHA DE TREINO
+   ======================================================= */
+
+:root[data-theme="dark"] .ft-tabs button {
+  /* tira aquele cinza claro no dark */
+  background: transparent;
+  border-color: rgba(148, 163, 184, 0.4);
+  color: var(--muted);
+}
+
+:root[data-theme="dark"] .ft-tabs button.active {
+  /* aba selecionada fica um "card" escuro */
+  background: var(--card);
+  border-color: var(--purple-700);
+  color: var(--text);
+  box-shadow: 0 0 0 1.5px var(--purple) inset;
+}
+
+/* cards de exercícios / duração etc */
+:root[data-theme="dark"] .ft-exe,
+:root[data-theme="dark"] .ft-item {
+  background: var(--card);                /* em vez de #fff */
+  border-color: rgba(148, 163, 184, 0.4); /* borda mais suave no escuro */
+}
+
+/* grid de séries/repetições/carga que era #fafafa */
+:root[data-theme="dark"] .ft-exe-grid {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(148, 163, 184, 0.4);
+}
+
+/* placeholder de mídia (quando não tem thumb do vídeo) */
+:root[data-theme="dark"] .ft-media-ph {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* linha da carga que era um card branco */
+:root[data-theme="dark"] .ft-carga,
+:root[data-theme="dark"] .ft-carga input {
+  background: var(--card);
+  color: var(--text);
+  border-color: rgba(148, 163, 184, 0.4);
+}
+/* ===========================================
+   MODO ESCURO — Blocos de Séries, Reps e Carga
+   =========================================== */
+
+:root[data-theme="dark"] .ft-exe-grid {
+  background: #0f172a; /* fundo escuro */
+  border-color: rgba(148, 163, 184, 0.25);
+}
+
+:root[data-theme="dark"] .ft-exe-grid > div {
+  background: #1e293b; /* caixinhas escuras */
+  border-color: rgba(148, 163, 184, 0.25);
+  color: var(--text);
+}
+
+:root[data-theme="dark"] .ft-exe-grid > div span {
+  color: var(--muted);
+}
+
+/* campo de carga */
+:root[data-theme="dark"] .ft-carga,
+:root[data-theme="dark"] .ft-carga input {
+  background: #1e293b !important;
+  color: var(--text);
+  border-color: rgba(148, 163, 184, 0.25) !important;
+}
+
+/* botão "Assistir vídeo" */
+:root[data-theme="dark"] .ft-video-btn {
+  background: #1e293b;
+  color: var(--text);
+  border-color: rgba(148, 163, 184, 0.25);
+}
+
+/* ===========================================
+   ALTO CONTRASTE — FICHA DE TREINO (ALUNO)
+   =========================================== */
+
+:root[data-high-contrast="on"] .ft {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Tabs Superiores / Inferiores */
+:root[data-high-contrast="on"] .ft-tabs button {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+:root[data-high-contrast="on"] .ft-tabs button.active {
+  background: #000000 !important;
+  color: #e100ff !important;              /* roxo neon do alto contraste */
+  border-color: #e100ff !important;
+  box-shadow: 0 0 0 2px #e100ff inset;
+}
+
+/* Card do treino (nome + duração) */
+:root[data-high-contrast="on"] .ft-summary,
+:root[data-high-contrast="on"] .ft-meta,
+:root[data-high-contrast="on"] .ft-block {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* Cards de exercício */
+:root[data-high-contrast="on"] .ft-exe {
+  background: #000000 !important;
+  border-color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+/* Grid Séries / Repetições / Carga */
+:root[data-high-contrast="on"] .ft-exe-grid {
+  background: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+:root[data-high-contrast="on"] .ft-exe-grid > div {
+  background: #111111 !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+:root[data-high-contrast="on"] .ft-exe-grid span {
+  color: #f4f4f5 !important;  /* textos “Séries”, “Repetições”, “Carga” */
+}
+
+/* Campo de carga */
+:root[data-high-contrast="on"] .ft-carga,
+:root[data-high-contrast="on"] .ft-carga input {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* Placeholder de mídia / vídeo */
+:root[data-high-contrast="on"] .ft-media-ph,
+:root[data-high-contrast="on"] .ft-video-embed {
+  background: #000000 !important;
+  border-color: #ffffff !important;
+}
+
